@@ -33,6 +33,10 @@ namespace sqlReport
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            panelOutputEmpty.Show();
+            panelOutputData.Hide();
+            panelOutputText.Hide();
+
             dset = new DataSet();
             conn = null;
             dialogDbLogin login = new dialogDbLogin();
@@ -83,7 +87,9 @@ namespace sqlReport
             
         }
 
-        private void buttonProcessSql_Click(object sender, EventArgs e)
+        TaskCompletionSource<bool> tsk = null;
+
+        private async void buttonProcessSql_Click(object sender, EventArgs e)
         {
             List<String> queries = textBoxQueries.Lines.ToList<String>();
 
@@ -101,6 +107,8 @@ namespace sqlReport
             Document doc = new Document();
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
             doc.Open();
+
+            DataSet ds = null;
 
             foreach(String sql in queries)
             {
@@ -122,10 +130,14 @@ namespace sqlReport
                     cmd.CommandText = sqlf;
                     try
                     {
-                        DataSet ds = new DataSet();
+                        ds = new DataSet();
                         OracleDataAdapter da = new OracleDataAdapter(sqlf, conn);
                         da.Fill(ds, table);
-                        exportTable(doc, ds, sqlf);
+                        dataGridViewOutput.DataSource = ds;
+                        dataGridViewOutput.DataMember = table;
+                        panelOutputEmpty.Hide();
+                        panelOutputText.Hide();
+                        panelOutputData.Show();
                     }
                     catch (Exception ex)
                     {
@@ -177,16 +189,36 @@ namespace sqlReport
                         {
                             outq.RemoveAt(outq.Count - 1);
                         }
-
-                        doc.Add(new Phrase(sqlf + "\n"));
-                        foreach(String l in outq)
+                        textBoxOutput.Clear();
+                        foreach (String l in outq)
                         {
-                            doc.Add(new Phrase(l + "\n"));
+                            textBoxOutput.AppendText(l + "\n");
+                            panelOutputEmpty.Hide();
+                            panelOutputData.Hide();
+                            panelOutputText.Show();
                         }
+                        
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex);
+                    }
+                }
+                tsk = new TaskCompletionSource<bool>();
+                await tsk.Task;
+                if(tsk.Task.Result == true)
+                {
+                    if(op == "select")
+                    {
+                        exportTable(doc, ds, sqlf);
+                    }
+                    else if(op == "exec")
+                    {
+                        doc.Add(new Phrase(sqlf + "\n"));
+                        foreach (String l in outq)
+                        {
+                            doc.Add(new Phrase(l + "\n"));
+                        }
                     }
                 }
             }
@@ -224,6 +256,16 @@ namespace sqlReport
                 doc.Add(new Phrase(table.TableName + ":"));
                 doc.Add(ptable);
             }          
+        }
+
+        private void buttonAddElement_Click(object sender, EventArgs e)
+        {
+            tsk.TrySetResult(true);
+        }
+
+        private void buttonSkipElement_Click(object sender, EventArgs e)
+        {
+            tsk.TrySetResult(false);
         }
     }
 }
