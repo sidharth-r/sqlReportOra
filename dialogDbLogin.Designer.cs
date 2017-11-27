@@ -65,7 +65,7 @@
             this.buttonHelp.Location = new System.Drawing.Point(99, 226);
             this.buttonHelp.Name = "buttonHelp";
             this.buttonHelp.Size = new System.Drawing.Size(95, 24);
-            this.buttonHelp.TabIndex = 14;
+            this.buttonHelp.TabIndex = 5;
             this.buttonHelp.Text = "Help";
             this.buttonHelp.UseVisualStyleBackColor = true;
             this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
@@ -75,7 +75,7 @@
             this.textBoxServicename.Location = new System.Drawing.Point(121, 116);
             this.textBoxServicename.Name = "textBoxServicename";
             this.textBoxServicename.Size = new System.Drawing.Size(152, 20);
-            this.textBoxServicename.TabIndex = 13;
+            this.textBoxServicename.TabIndex = 3;
             this.textBoxServicename.Text = "xe";
             // 
             // labelServiceName
@@ -92,8 +92,7 @@
             this.textBoxHostname.Location = new System.Drawing.Point(121, 90);
             this.textBoxHostname.Name = "textBoxHostname";
             this.textBoxHostname.Size = new System.Drawing.Size(152, 20);
-            this.textBoxHostname.TabIndex = 11;
-            this.textBoxHostname.Text = "home-pc";
+            this.textBoxHostname.TabIndex = 2;
             // 
             // labelHostname
             // 
@@ -109,7 +108,7 @@
             this.buttonConfirm.Location = new System.Drawing.Point(71, 157);
             this.buttonConfirm.Name = "buttonConfirm";
             this.buttonConfirm.Size = new System.Drawing.Size(150, 29);
-            this.buttonConfirm.TabIndex = 9;
+            this.buttonConfirm.TabIndex = 4;
             this.buttonConfirm.Text = "Confirm";
             this.buttonConfirm.UseVisualStyleBackColor = true;
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
@@ -137,16 +136,14 @@
             this.textBoxPass.Location = new System.Drawing.Point(121, 64);
             this.textBoxPass.Name = "textBoxPass";
             this.textBoxPass.Size = new System.Drawing.Size(152, 20);
-            this.textBoxPass.TabIndex = 6;
-            this.textBoxPass.Text = "root";
+            this.textBoxPass.TabIndex = 1;
             // 
             // textBoxUser
             // 
             this.textBoxUser.Location = new System.Drawing.Point(121, 38);
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(152, 20);
-            this.textBoxUser.TabIndex = 5;
-            this.textBoxUser.Text = "system";
+            this.textBoxUser.TabIndex = 0;
             // 
             // dialogDbLogin
             // 

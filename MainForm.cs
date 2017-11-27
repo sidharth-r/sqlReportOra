@@ -37,6 +37,12 @@ namespace sqlReport
             panelOutputData.Hide();
             panelOutputText.Hide();
 
+            buttonProcessSql.Enabled = true;
+            buttonAddElement.Enabled = false;
+            buttonSkipElement.Enabled = false;
+
+            
+
             dset = new DataSet();
             conn = null;
             dialogDbLogin login = new dialogDbLogin();
@@ -68,23 +74,7 @@ namespace sqlReport
                 Application.Exit();
             }
 
-            MessageBox.Show("Connected to database.", "", MessageBoxButtons.OK);
-
-            /*
-            String sql = @"create or replace procedure proc_sqlr_enablebuffer as
-                           begin
-                           dbms_output.enable(2000);
-                           end;";
-            OracleCommand cmd = new OracleCommand(sql, conn);
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch(OracleException ex)
-            {
-                Console.WriteLine(ex);
-            }*/
-            
+            MessageBox.Show("Connected to database.", "", MessageBoxButtons.OK);            
         }
 
         TaskCompletionSource<bool> tsk = null;
@@ -103,16 +93,27 @@ namespace sqlReport
                 return;
             }
 
+            String f = null;
+            if (filename.Length > 4)
+                f = filename.Substring(filename.Length-4,4);
+            if(f != ".pdf")
+                filename = filename + ".pdf";
+
+            buttonProcessSql.Enabled = false;
+            buttonAddElement.Enabled = true;
+            buttonSkipElement.Enabled = true;
+
             FileStream fs = new FileStream(filename, FileMode.Create);
             Document doc = new Document();
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
             doc.Open();
 
             DataSet ds = null;
+            int line = 0;
 
             foreach(String sql in queries)
             {
-                if (sql == null)
+                if (sql == null || sql.Length == 0)
                     continue;
 
                 String sqlf = sql;
@@ -204,6 +205,11 @@ namespace sqlReport
                         Console.WriteLine(ex);
                     }
                 }
+
+                int iStart = textBoxQueries.GetFirstCharIndexFromLine(line);
+                line++;
+                textBoxQueries.Select(iStart, sql.Length);
+
                 tsk = new TaskCompletionSource<bool>();
                 await tsk.Task;
                 if(tsk.Task.Result == true)
@@ -220,10 +226,28 @@ namespace sqlReport
                             doc.Add(new Phrase(l + "\n"));
                         }
                     }
+                    doc.Add(new Phrase("\n\n"));
                 }
             }
-            doc.Close();
-            dset.WriteXml(filename+".xml");
+
+            bool docEmpty = false;
+            try
+            {
+                doc.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+                MessageBox.Show("Document is empty.", "", MessageBoxButtons.OK);
+                docEmpty = true;
+            }
+
+            buttonProcessSql.Enabled = true;
+            buttonAddElement.Enabled = false;
+            buttonSkipElement.Enabled = false;
+
+            if(!docEmpty)
+                MessageBox.Show("Data exported successfully to " + filename,"",MessageBoxButtons.OK);
             
         }
 

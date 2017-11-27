@@ -39,6 +39,7 @@
             this.panelOutputEmpty = new System.Windows.Forms.Panel();
             this.buttonAddElement = new System.Windows.Forms.Button();
             this.buttonSkipElement = new System.Windows.Forms.Button();
+            this.labelTooltip = new System.Windows.Forms.Label();
             this.panelOutputText.SuspendLayout();
             this.panelOutputData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOutput)).BeginInit();
@@ -46,6 +47,7 @@
             // 
             // textBoxQueries
             // 
+            this.textBoxQueries.HideSelection = false;
             this.textBoxQueries.Location = new System.Drawing.Point(12, 42);
             this.textBoxQueries.Multiline = true;
             this.textBoxQueries.Name = "textBoxQueries";
@@ -55,9 +57,9 @@
             // 
             // buttonProcessSql
             // 
-            this.buttonProcessSql.Location = new System.Drawing.Point(12, 433);
+            this.buttonProcessSql.Location = new System.Drawing.Point(12, 422);
             this.buttonProcessSql.Name = "buttonProcessSql";
-            this.buttonProcessSql.Size = new System.Drawing.Size(553, 55);
+            this.buttonProcessSql.Size = new System.Drawing.Size(493, 66);
             this.buttonProcessSql.TabIndex = 2;
             this.buttonProcessSql.Text = "Execute Queries";
             this.buttonProcessSql.UseVisualStyleBackColor = true;
@@ -69,6 +71,7 @@
             this.textBoxFilename.Name = "textBoxFilename";
             this.textBoxFilename.Size = new System.Drawing.Size(159, 20);
             this.textBoxFilename.TabIndex = 3;
+            this.textBoxFilename.Text = "out";
             // 
             // labelFilename
             // 
@@ -82,9 +85,9 @@
             // panelOutputText
             // 
             this.panelOutputText.Controls.Add(this.textBoxOutput);
-            this.panelOutputText.Location = new System.Drawing.Point(12, 172);
+            this.panelOutputText.Location = new System.Drawing.Point(11, 172);
             this.panelOutputText.Name = "panelOutputText";
-            this.panelOutputText.Size = new System.Drawing.Size(688, 255);
+            this.panelOutputText.Size = new System.Drawing.Size(688, 244);
             this.panelOutputText.TabIndex = 5;
             // 
             // textBoxOutput
@@ -95,7 +98,7 @@
             this.textBoxOutput.Multiline = true;
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxOutput.Size = new System.Drawing.Size(688, 255);
+            this.textBoxOutput.Size = new System.Drawing.Size(688, 244);
             this.textBoxOutput.TabIndex = 0;
             // 
             // panelOutputData
@@ -103,7 +106,7 @@
             this.panelOutputData.Controls.Add(this.dataGridViewOutput);
             this.panelOutputData.Location = new System.Drawing.Point(12, 172);
             this.panelOutputData.Name = "panelOutputData";
-            this.panelOutputData.Size = new System.Drawing.Size(688, 255);
+            this.panelOutputData.Size = new System.Drawing.Size(688, 244);
             this.panelOutputData.TabIndex = 6;
             // 
             // dataGridViewOutput
@@ -115,21 +118,21 @@
             this.dataGridViewOutput.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewOutput.Name = "dataGridViewOutput";
             this.dataGridViewOutput.ReadOnly = true;
-            this.dataGridViewOutput.Size = new System.Drawing.Size(688, 255);
+            this.dataGridViewOutput.Size = new System.Drawing.Size(688, 244);
             this.dataGridViewOutput.TabIndex = 0;
             // 
             // panelOutputEmpty
             // 
             this.panelOutputEmpty.Location = new System.Drawing.Point(12, 172);
             this.panelOutputEmpty.Name = "panelOutputEmpty";
-            this.panelOutputEmpty.Size = new System.Drawing.Size(688, 255);
+            this.panelOutputEmpty.Size = new System.Drawing.Size(688, 244);
             this.panelOutputEmpty.TabIndex = 7;
             // 
             // buttonAddElement
             // 
-            this.buttonAddElement.Location = new System.Drawing.Point(571, 433);
+            this.buttonAddElement.Location = new System.Drawing.Point(510, 422);
             this.buttonAddElement.Name = "buttonAddElement";
-            this.buttonAddElement.Size = new System.Drawing.Size(129, 29);
+            this.buttonAddElement.Size = new System.Drawing.Size(189, 30);
             this.buttonAddElement.TabIndex = 8;
             this.buttonAddElement.Text = "Add element";
             this.buttonAddElement.UseVisualStyleBackColor = true;
@@ -137,28 +140,38 @@
             // 
             // buttonSkipElement
             // 
-            this.buttonSkipElement.Location = new System.Drawing.Point(571, 468);
+            this.buttonSkipElement.Location = new System.Drawing.Point(511, 458);
             this.buttonSkipElement.Name = "buttonSkipElement";
-            this.buttonSkipElement.Size = new System.Drawing.Size(129, 20);
+            this.buttonSkipElement.Size = new System.Drawing.Size(189, 30);
             this.buttonSkipElement.TabIndex = 9;
             this.buttonSkipElement.Text = "Skip";
             this.buttonSkipElement.UseVisualStyleBackColor = true;
             this.buttonSkipElement.Click += new System.EventHandler(this.buttonSkipElement_Click);
+            // 
+            // labelTooltip
+            // 
+            this.labelTooltip.AutoSize = true;
+            this.labelTooltip.Location = new System.Drawing.Point(12, 26);
+            this.labelTooltip.Name = "labelTooltip";
+            this.labelTooltip.Size = new System.Drawing.Size(132, 13);
+            this.labelTooltip.TabIndex = 10;
+            this.labelTooltip.Text = "select and exec supported";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 500);
+            this.Controls.Add(this.labelTooltip);
             this.Controls.Add(this.buttonSkipElement);
             this.Controls.Add(this.buttonAddElement);
-            this.Controls.Add(this.panelOutputEmpty);
             this.Controls.Add(this.panelOutputData);
             this.Controls.Add(this.panelOutputText);
             this.Controls.Add(this.labelFilename);
             this.Controls.Add(this.textBoxFilename);
             this.Controls.Add(this.buttonProcessSql);
             this.Controls.Add(this.textBoxQueries);
+            this.Controls.Add(this.panelOutputEmpty);
             this.Name = "MainForm";
             this.Text = "SQL Report Generator";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -184,6 +197,7 @@
         private System.Windows.Forms.Panel panelOutputEmpty;
         private System.Windows.Forms.Button buttonAddElement;
         private System.Windows.Forms.Button buttonSkipElement;
+        private System.Windows.Forms.Label labelTooltip;
 
     }
 }
