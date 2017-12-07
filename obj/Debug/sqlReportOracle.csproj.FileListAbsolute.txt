@@ -1,0 +1,16 @@
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\obj\Debug\sqlReportOracle.csprojResolveAssemblyReference.cache
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\obj\Debug\sqlReport.dialogDbLogin.resources
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\obj\Debug\sqlReport.dialogSelectDatabase.resources
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\obj\Debug\sqlReport.MainForm.resources
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\obj\Debug\sqlReportOracle.Properties.Resources.resources
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\obj\Debug\sqlReportOracle.csproj.GenerateResource.Cache
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\obj\Debug\sqlReportOracle.csproj.CoreCompileInputs.cache
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\bin\Debug\sqlReportOracle.exe.config
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\bin\Debug\sqlReportOracle.exe
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\bin\Debug\sqlReportOracle.pdb
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\bin\Debug\itextsharp.dll
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\bin\Debug\itextsharp.xml
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\obj\Debug\sqlReportOracle.exe
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\obj\Debug\sqlReportOracle.pdb
+C:\Users\Sachin\source\repos\sqlReportOracle\sqlReportOracle\obj\Debug\sqlReport.dialogQueryBuilder.resources

@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using Oracle.DataAccess.Client;
-using Oracle.DataAccess.Types;
-//using Oracle.ManagedDataAccess.Client;
-//using Oracle.ManagedDataAccess.Types;
+//using Oracle.DataAccess.Client;
+//Wusing Oracle.DataAccess.Types;
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 
 namespace sqlReport
 {
@@ -240,7 +240,10 @@ namespace sqlReport
                 Console.WriteLine(ex);
                 MessageBox.Show("Document is empty.", "", MessageBoxButtons.OK);
                 docEmpty = true;
+                doc.Close();
             }
+
+            fs.Close();
 
             buttonProcessSql.Enabled = true;
             buttonAddElement.Enabled = false;
@@ -285,6 +288,17 @@ namespace sqlReport
         private void buttonAddElement_Click(object sender, EventArgs e)
         {
             tsk.TrySetResult(true);
+        }
+
+        private void buttonQueryBuilder_Click(object sender, EventArgs e)
+        {
+            dialogQueryBuilder dialog = new dialogQueryBuilder();
+            DialogResult res = dialog.ShowDialog();
+            if(res == DialogResult.OK)
+            {
+                // add the generated query from dialog.generatedQuery to textBoxQueries
+            }
+
         }
 
         private void buttonSkipElement_Click(object sender, EventArgs e)

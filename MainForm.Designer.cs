@@ -40,6 +40,7 @@
             this.buttonAddElement = new System.Windows.Forms.Button();
             this.buttonSkipElement = new System.Windows.Forms.Button();
             this.labelTooltip = new System.Windows.Forms.Label();
+            this.buttonQueryBuilder = new System.Windows.Forms.Button();
             this.panelOutputText.SuspendLayout();
             this.panelOutputData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOutput)).BeginInit();
@@ -157,11 +158,22 @@
             this.labelTooltip.TabIndex = 10;
             this.labelTooltip.Text = "select and exec supported";
             // 
+            // buttonQueryBuilder
+            // 
+            this.buttonQueryBuilder.Location = new System.Drawing.Point(246, 12);
+            this.buttonQueryBuilder.Name = "buttonQueryBuilder";
+            this.buttonQueryBuilder.Size = new System.Drawing.Size(146, 23);
+            this.buttonQueryBuilder.TabIndex = 11;
+            this.buttonQueryBuilder.Text = "Query Builder";
+            this.buttonQueryBuilder.UseVisualStyleBackColor = true;
+            this.buttonQueryBuilder.Click += new System.EventHandler(this.buttonQueryBuilder_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 500);
+            this.Controls.Add(this.buttonQueryBuilder);
             this.Controls.Add(this.labelTooltip);
             this.Controls.Add(this.buttonSkipElement);
             this.Controls.Add(this.buttonAddElement);
@@ -198,7 +210,7 @@
         private System.Windows.Forms.Button buttonAddElement;
         private System.Windows.Forms.Button buttonSkipElement;
         private System.Windows.Forms.Label labelTooltip;
-
+        private System.Windows.Forms.Button buttonQueryBuilder;
     }
 }
 

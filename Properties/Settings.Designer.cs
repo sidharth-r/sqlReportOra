@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace sqlReportOracle.Properties {
+namespace sqlReport.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
