@@ -293,6 +293,7 @@ namespace sqlReport
         private void buttonQueryBuilder_Click(object sender, EventArgs e)
         {
             dialogQueryBuilder dialog = new dialogQueryBuilder();
+            dialog.conn = conn;
             DialogResult res = dialog.ShowDialog();
             if(res == DialogResult.OK)
             {

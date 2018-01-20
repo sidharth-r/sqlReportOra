@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{30367AF0-D229-4B71-90FC-5C28B955501E}</ProjectGuid>
+    <ProjectGuid>{D2F78689-81E6-462F-9021-890A61DAFABE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>sqlReportOracle</RootNamespace>
@@ -74,7 +74,8 @@
       <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -87,7 +88,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dialogDbLogin.cs" />
+    <Compile Include="dialogDbLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="dialogDbLogin.Designer.cs">
       <DependentUpon>dialogDbLogin.cs</DependentUpon>
     </Compile>
@@ -97,7 +100,9 @@
     <Compile Include="dialogQueryBuilder.Designer.cs">
       <DependentUpon>dialogQueryBuilder.cs</DependentUpon>
     </Compile>
-    <Compile Include="dialogSelectDatabase.cs" />
+    <Compile Include="dialogSelectDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="dialogSelectDatabase.Designer.cs">
       <DependentUpon>dialogSelectDatabase.cs</DependentUpon>
     </Compile>
